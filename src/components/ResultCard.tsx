@@ -73,7 +73,8 @@ export default function ResultCard({ result, preview }: Props) {
           <div className="mt-2 h-4 w-full rounded-full bg-brand-100 shadow-inner">
             <div
               className={`h-4 rounded-full ${confidenceColor(conf)} transition-all duration-500 shadow-md`}
-              style={{ maxWidth: '100%', width: `${Math.min(100, Math.max(0, conf * 100))}%` }}
+              style={{ width: undefined }}
+              data-width={conf}
             />
           </div>
         </div>
