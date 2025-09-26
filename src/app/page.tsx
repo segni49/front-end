@@ -71,13 +71,23 @@ export default function HomePage() {
       <section className="rounded-2xl bg-white/80 backdrop-blur-xs shadow-soft p-4">
   <Uploader file={file} preview={preview} onFileChange={onFileChange} />
 
-        <button
-          onClick={onPredict}
-          disabled={!file || loading}
-          className="mt-4 w-full rounded-xl bg-brand-500 px-4 py-3 text-white font-semibold shadow-soft transition hover:bg-brand-600 disabled:opacity-60 text-lg"
-        >
-          {loading ? 'Analyzing…' : 'Analyze leaf'}
-        </button>
+       <button
+    onClick={onPredict}
+    disabled={!file || loading}
+    className="mt-4 w-full rounded-xl bg-gradient-to-r from-brand-400 via-brand-500 to-accent-500 px-4 py-3 text-black font-extrabold shadow-glow transition hover:scale-105 hover:shadow-xl disabled:opacity-60 text-lg border-4 border-green-500 focus:outline-none focus:ring-4 focus:ring-brand-300"
+  >
+    Analyze Leaf
+  </button>
+
+  {(!file || loading) && (
+    <div className="mt-2 text-center text-green-700 font-extrabold animate-pulse text-sm">
+      { !file
+        ? 'Select an image to enable Analyze button.'
+        : 'Please wait, analyzing...' }
+    </div>
+  )}
+
+        
       </section>
 
       <section className="mt-6">
