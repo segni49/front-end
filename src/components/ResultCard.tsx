@@ -64,7 +64,7 @@ export default function ResultCard({ result, preview }: Props) {
         )}
       </div>
 
-      {'confidence' in result && (
+      {result.confidence !== undefined && (
         <div className="mt-4">
           <div className="flex items-center justify-between text-base text-brand-700 font-semibold">
             <span>Confidence</span>
@@ -72,21 +72,20 @@ export default function ResultCard({ result, preview }: Props) {
           </div>
           <div className="mt-2 h-4 w-full rounded-full bg-brand-100 shadow-inner">
             <div
-              className={`h-4 rounded-full ${confidenceColor(conf)} transition-all duration-500 shadow-md`}
-              style={{ width: undefined }}
+              className={`h-4 rounded-full ${confidenceColor(conf)} transition-all duration-500 shadow-md confidence-bar`}
               data-width={conf}
             />
           </div>
         </div>
       )}
 
-      {'guidance' in result && result.guidance && (
+      {result.guidance && (
         <div className="mt-4 rounded-xl border border-brand-200 bg-brand-50 p-4 text-brand-800 shadow-soft">
           <strong className="font-semibold">Guidance:</strong> {result.guidance}
         </div>
       )}
 
-      {Array.isArray(result.top3) && (
+      {Array.isArray(result.top3) && result.top3 && (
         <div className="mt-6">
           <h4 className="text-brand-800 font-bold text-lg mb-2">Top 3 Predictions</h4>
           <ul className="space-y-2">

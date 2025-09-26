@@ -20,3 +20,8 @@
   background: #a6e3ae;
   border-radius: 8px;
 }
+
+/* Confidence bar dynamic width */
+.confidence-bar[data-width] {
+  width: calc(var(--confidence, 0) * 1%);
+}
